@@ -27,7 +27,7 @@ router.get('/all',async (_req, res) => {
     //el guion bajo lo usamos cuando declararemos la variable pero no se usara
     try {
         const projects = await getProjects();
-        res.json(projects);
+        return res.json(projects);
     } catch (ex: any) {
         return res.status(500).json({error: ex?.message});
     }
@@ -62,7 +62,7 @@ router.post('/new', async (req, res) => {
 });
 
 router.put('/upd/:id',async (req, res) => {
-    try{ 
+    try{
         const { id = ''} = req.params;
         const { name= '', description= '', isActive = false } = req.body;
         const updatedProject = await updateProject(id, { name, description, isActive: (isActive && true) });

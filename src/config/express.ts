@@ -5,6 +5,8 @@ import rootRoute from '@routes/index';
 import errorHandler from './expressError';
 import expressNotFound from './expressNotFound';
 import expressLogger from './expressLogger';
+import { getDb } from '@dao/models/ConnMongoDb';
+
 const createServer = () => {
   const app = express();
   //podremos sacar de form el formatop JSON
@@ -18,6 +20,9 @@ const createServer = () => {
   app.use('/', rootRoute);
   app.use(expressNotFound);
   app.use(errorHandler);
+  getDb().then(_db=>{
+    console.log("Conectado a MongoDB");
+  });
   return app;
 };
 

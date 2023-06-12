@@ -42,7 +42,7 @@ export class ProjectDao extends DaoBase<IProject>{
         this.serialize();
         return Promise.resolve(true);
     }
-    public find(item: Partial<IProject>): Promise<IProject[]> {
+    public find(_item: Partial<IProject>): Promise<IProject[]> {
         return Promise.resolve(this.memoryProjects);
     }
     public findOne(id: string): Promise<IProject> {
@@ -69,5 +69,11 @@ export class ProjectDao extends DaoBase<IProject>{
         super();
         this.deserialize();
     }
-    //seminariost2023
+    //Contraseña de conexión compass: seminariost2023
 }
+/**
+ * paquete o nivel de abstraccion que permite
+ * encapsular ciertas opciones comunes para la bd para que
+ * los desarrolladores no pierdan el tiempo en
+ * aprender lo básico.
+ */
