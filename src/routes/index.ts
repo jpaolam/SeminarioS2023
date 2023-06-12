@@ -20,5 +20,13 @@ router.get('/', (_req, res) => {
   */
 
  router.use('/api', apiRoutes);
-
+/**
+ * un objeto router generado de express
+ * nos sirve para crear rutas, urls
+ * usaremos 4 peticiones http:
+ * POST
+ * DELETE
+ * PUSH
+ * GET
+ */
 export default router;
